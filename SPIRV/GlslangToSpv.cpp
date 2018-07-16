@@ -1672,7 +1672,8 @@ bool TGlslangToSpvTraverser::visitAggregate(glslang::TVisit visit, glslang::TInt
     bool noReturnValue = false;
     bool atomic = false;
 
-    assert(node->getOp());
+    //assert(node->getOp());
+	if (!node->getOp()) return false;
 
     spv::Decoration precision = TranslatePrecisionDecoration(node->getOperationPrecision());
 
