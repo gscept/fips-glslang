@@ -1,0 +1,13 @@
+#
+# fips-glew
+#
+---
+exports:
+    header-dirs: [ glslang/include ]
+    modules :
+        glslang: . 
+        OGLCompilersDLL: .
+        SPIRV: .
+        hlsl: .
+        StandAlone: .
+
