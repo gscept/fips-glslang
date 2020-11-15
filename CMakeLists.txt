@@ -28,8 +28,4 @@ fips_src(glslang/OGLCompilersDLL NO_RECURSE)
 fips_src(glslang/SPIRV NO_RECURSE)
 fips_src(glslang/StandAlone NO_RECURSE)
 fips_end_lib()
-if(FIPS_WINDOWS AND ${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.16.0")
-    set_target_properties(glslang PROPERTIES UNITY_BUILD ON)
-endif()
-
 fips_finish()
