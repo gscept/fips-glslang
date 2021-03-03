@@ -40,6 +40,7 @@ fips_include_directories(spirv-tools/include)
 fips_include_directories(spirv-tools/source)
 fips_include_directories(spirv-tools/)
 fips_include_directories(spirv-tools/external/spirv-headers/include)
+fips_include_directories(spirv-headers/include)
 
 #fips_include_directories(spirv-tools/external/protobuf/src)
 fips_end_lib()
