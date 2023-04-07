@@ -1,14 +1,16 @@
 #
 # project: fips-glslang
 #
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.21)
 
+if (NOT FIPS_IMPORT)
 # include the fips main cmake file
 get_filename_component(FIPS_ROOT_DIR "../fips" ABSOLUTE)
 include("${FIPS_ROOT_DIR}/cmake/fips.cmake")
+    project(fips-glslang)
+    fips_setup()
+endif()
 
-fips_setup()
-fips_project(fips-glslang)
 
 fips_begin_lib(glslang)
 add_definitions(-DENABLE_HLSL)
@@ -36,15 +38,12 @@ fips_src(spirv-tools/source/opt NO_RECURSE)
 fips_src(spirv-tools/source/reduce NO_RECURSE)
 fips_src(spirv-tools/source/util NO_RECURSE)
 fips_src(spirv-tools/source/val NO_RECURSE)
-fips_include_directories(spirv-tools/include)
-fips_include_directories(spirv-tools/source)
-fips_include_directories(spirv-tools/)
-fips_include_directories(spirv-tools/external/spirv-headers/include)
-fips_include_directories(spirv-headers/include)
+target_include_directories(glslang PRIVATE spirv-tools/include)
+target_include_directories(glslang PRIVATE spirv-tools/source)
+target_include_directories(glslang PRIVATE spirv-tools/)
+target_include_directories(glslang PRIVATE spirv-tools/external/spirv-headers/include)
+target_include_directories(glslang PRIVATE spirv-headers/include)
 
-#fips_include_directories(spirv-tools/external/protobuf/src)
+#target_include_directories(glslang PRIVATE spirv-tools/external/protobuf/src)
 fips_end_lib()
 target_include_directories(glslang PUBLIC spirv-tools/include)
-
-
-fips_finish()
