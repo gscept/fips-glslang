@@ -22,7 +22,7 @@ fips_src(glslang/glslang/Public NO_RECURSE)
 fips_include_directories(glslang/OGLCompilersDLL)
 if (FIPS_WINDOWS)   
     fips_src(glslang/glslang/OSDependent/Windows NO_RECURSE)
-elseif (FIPS_LINUX)
+elseif (FIPS_LINUX OR FIPS_MACOS)
     fips_src(glslang/glslang/OSDependent/Unix NO_RECURSE)
 endif()
 
