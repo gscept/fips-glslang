@@ -11,7 +11,7 @@ include("${FIPS_ROOT_DIR}/cmake/fips.cmake")
     fips_setup()
 endif()
 
-
+set(CMAKE_CXX_STANDARD 20)
 fips_begin_lib(glslang)
 add_definitions(-DENABLE_HLSL)
 add_definitions(-DENABLE_OPT=1)

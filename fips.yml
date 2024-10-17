@@ -5,5 +5,7 @@
 exports:
     header-dirs: [ glslang ]
     modules :
-        glslang: . 
-
+        glslang: .
+        spirv-tools: .
+        spirv-headers: .
+        
